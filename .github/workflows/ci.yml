@@ -20,6 +20,8 @@ jobs:
         run: |
           go vet ./...
       - name: "go test"
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
         run: |
           go test -cover -coverprofile coverage.txt -race -v ./...
       - uses: codecov/codecov-action@v1

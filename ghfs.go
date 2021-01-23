@@ -36,6 +36,11 @@ func New(c *http.Client, owner, repo string) fs.FS {
 	return &FS{owner: owner, repo: repo, rs: github.NewClient(c).Repositories}
 }
 
+// NewWithGitHubClient returns a new github file sytem with *github.Client.
+func NewWithGitHubClient(c *github.Client, owner, repo string) fs.FS {
+	return &FS{owner: owner, repo: repo, rs: c.Repositories}
+}
+
 // Open implementes fs.FS and opens a new file asd fs.File.
 func (f *FS) Open(name string) (fs.File, error) {
 	fc, dc, err := f.getContents(name)

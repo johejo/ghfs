@@ -4,5 +4,5 @@ go 1.16
 
 require (
 	github.com/google/go-github/v33 v33.0.0
-	golang.org/x/oauth2 v0.0.0-20220628200809-02e64fa58f26
+	golang.org/x/oauth2 v0.0.0-20220630143837-2104d58473e0
 )
